@@ -1,5 +1,5 @@
-import { SiteHeader } from "@/components/ui/site-header";
-import { SiteSide } from "@/components/ui/site-side";
+import { SiteHeader } from "@/components/routes/navbar/site-header";
+import { SiteSide } from "@/components/routes/sidebar/site-side";
 
 const WebLayout = ({ children }: { children: React.ReactNode }) => {
   return (

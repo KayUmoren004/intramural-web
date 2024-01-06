@@ -72,13 +72,6 @@ const SignIn = ({ searchParams }: SignInProps) => {
   const { LoginZod } = validateLogin(school.value ?? "");
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const qParams = useSearchParams();
-
-  const router = useRouter();
-
-  const session = useSession();
-  // console.log("session", session);
-
   const { isPending, error, data } = useQuery({
     queryKey: ["schools"],
     queryFn: async () => {
@@ -132,8 +125,6 @@ const SignIn = ({ searchParams }: SignInProps) => {
         password,
         callbackUrl: `/web/${domain}/dashboard/`,
       });
-
-      console.log("REQUEST", request);
 
       if (request?.error) {
         // const error = JSON.parse(res?.error ?? "");
@@ -242,13 +233,8 @@ const SignIn = ({ searchParams }: SignInProps) => {
                         </FormItem>
                       )}
                     />
-                    {/* <Button type="submit">Submit</Button> */}
 
-                    <Button
-                      className="w-full"
-                      type="submit"
-                      //   disabled={!form.formState.isValid}
-                    >
+                    <Button className="w-full" type="submit">
                       {isLoading && (
                         <Icons.spinner className="mr-2 h-4 w-4 animate-spin" />
                       )}

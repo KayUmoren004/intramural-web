@@ -3,16 +3,23 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { ModeToggle } from "@/components/ui/mode-toggle";
 import { buttonVariants } from "@/components/ui/button";
-import { Icons } from "./icons";
+import { Icons } from "../../ui/icons";
+import { MainNav } from "./main-nav";
+import User from "./User";
+import { Separator } from "@/components/ui/separator";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/default bg-zinc-900 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="container flex h-12 max-h-12 max-w-screen-2xl items-center">
+    <header className="sticky top-0 z-30 w-full border-b border-border/default bg-zinc-900 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <div className=" flex h-14 items-center px-6">
+        <MainNav />
+        {/* <MobileNav /> */}
         <div className="flex flex-1 items-center justify-between space-x-2 md:justify-end">
-          <div className="w-full flex-1 md:w-auto md:flex-none">Stuff</div>
-          <nav className="flex items-center">
-            <Link
+          {/* <div className="w-full flex-1 md:w-auto md:flex-none">
+            Command Menu
+          </div> */}
+          <nav className="flex items-center justify-center space-x-2">
+            {/* <Link
               href={"siteConfig.links.github"}
               target="_blank"
               rel="noreferrer"
@@ -45,8 +52,10 @@ export function SiteHeader() {
                 <Icons.twitter className="h-3 w-3 fill-current" />
                 <span className="sr-only">Twitter</span>
               </div>
-            </Link>
+            </Link> */}
             <ModeToggle />
+
+            <User />
           </nav>
         </div>
       </div>

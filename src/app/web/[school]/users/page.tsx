@@ -9,7 +9,7 @@ const Page = ({}: PageProps) => {
 
   return (
     <div>
-      <h1>Dash Page</h1>
+      <h1>Users Page</h1>
     </div>
   );
 };
