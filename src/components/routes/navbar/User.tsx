@@ -1,5 +1,5 @@
 "use client";
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -12,6 +12,7 @@ import Avatar from "./Avatar";
 import Image from "next/image";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
+import { LogOut } from "lucide-react";
 
 type UserProps = {};
 
@@ -64,6 +65,11 @@ const User = ({}: UserProps) => {
         {/* <DropdownMenuItem>Billing</DropdownMenuItem> */}
         {/* <DropdownMenuItem>Team</DropdownMenuItem> */}
         <DropdownMenuItem>Subscription</DropdownMenuItem>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem onClick={() => signOut({ callbackUrl: "/" })}>
+          <LogOut className="mr-2 h-4 w-4 text-red-500" />
+          <span className="text-red-500">Log out</span>
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

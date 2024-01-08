@@ -6,9 +6,16 @@ import { Toaster as Sonner } from "sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 
-const queryClient = new QueryClient();
+export const queryClientOptions = {
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+};
 
 const Providers = ({ children }: { children: React.ReactNode }) => {
+  const queryClient = new QueryClient(queryClientOptions);
   return (
     <SessionProvider session={null}>
       <ThemeProvider

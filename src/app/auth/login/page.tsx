@@ -175,6 +175,7 @@ const SignIn = ({ searchParams }: SignInProps) => {
                 : "Select your school to continue"}
             </p>
           </div>
+
           {/* <UserAuthForm /> */}
           <div className="grid gap-6">
             <Form {...form}>

@@ -32,9 +32,11 @@ export type Sport = {
   id: string;
   schoolId: string; // Reference to associated school
   name: string;
-  season: "Fall" | "Winter" | "Spring" | "Summer";
+  season: "Fall" | "Winter" | "Spring" | "Summer" | string;
   description: string; // Brief description of the sport
   rulesUrl: string; // URL link to official rules (if any)
+  leagues: League[]; // List of leagues associated with the sport
+  status: "Active" | "Inactive" | "Canceled";
 };
 
 export type League = {
