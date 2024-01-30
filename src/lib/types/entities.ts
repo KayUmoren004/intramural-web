@@ -32,40 +32,77 @@ export type Sport = {
   id: string;
   schoolId: string; // Reference to associated school
   name: string;
-  season: "Fall" | "Winter" | "Spring" | "Summer";
+  // season: "Fall" | "Winter" | "Spring" | "Summer" | undefined;
+  season: string;
   description: string; // Brief description of the sport
   rulesUrl: string; // URL link to official rules (if any)
+  leagues: League[]; // List of leagues associated with the sport
+  status: "Active" | "Inactive" | "Canceled";
+  // settings: {
+  //   id?: number;
+  //   sportId: string;
+  //   sport?: Sport;
+  //   name: string;
+  //   value: string;
+  //   required: boolean;
+  // }[];
+  settings: SportSettings[];
+};
+
+export type SportSettings = {
+  id: number | undefined;
+  sportId: string;
+  sport?: Sport;
+  name: string;
+  value: string;
+  required: boolean;
 };
 
 export type League = {
   id: string;
   sportId: string; // Reference to associated sport
   name: string;
+  division: string;
   startDate: Date;
   endDate: Date;
-  sponsors: Array<string>; // List of sponsors' names (if any)
+  sport: Sport;
+  settings: LeagueSettings[];
+};
+
+export type LeagueSettings = {
+  id: number | undefined;
+  leagueId: string;
+  league?: League;
+  name: string;
+  value: any;
+  required: boolean;
 };
 
 export type Team = {
   id: string;
   leagueId: string; // Reference to associated league
   name: string;
-  captainName: string;
+  captainId: string;
   logoUrl: string;
   wins: number; // Number of victories
   losses: number; // Number of defeats
   ties: number; // Number of draws (relevant for sports like soccer)
+  captain: User;
+  league: League;
+  players: Player[]; // List of players associated with the team
+  sport: Sport;
 };
 
 export type Player = {
   id: string;
   teamId: string; // Reference to associated team
   userId: string; // Reference to associated user profile
-  name: string;
-  email: string;
+  // name: string;
+  // email: string;
   position: string;
   jerseyNumber: number;
-  stats: any; // Player stats
+  // stats: any; // Player stats
+  user: User;
 };
 
 export type Game = {
